@@ -1,32 +1,46 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Details</title>
+</head>
+
 <body>
-    <h2>Enter Your info</h2>
-    <h6> Enter your Name</h6>
+    <h2>Enter Your Info</h2>
+
+    <h6>Enter your Name</h6>
     <input type="text" id="name"/>
-    <h6> Enter your Age</h6>
+
+    <h6>Enter your Age</h6>
     <input type="text" id="age"/>
-    <h6> Enter your Contact</h6>
+
+    <h6>Enter your Contact</h6>
     <input type="text" id="contact"/>
-    <h6> Enter your Email</h6>
+
+    <h6>Enter your Email</h6>
     <input type="text" id="email"/><br><br>
-    <input type="button" id="bt" value="Submit" onclick="saveFile()"/>
+
+    <input type="button" value="Submit" onclick="saveFile()"/>
 
     <script>
         function saveFile(){
-            let name=document.getElementById("name").value;
-            let age=document.getElementById("age").value;
-            let contact=document.getElementById("contact").value;
-            let email=document.getElementById("email").value;
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let contact = document.getElementById("contact").value;
+            let email = document.getElementById("email").value;
 
-            let data= `Name: ${name}\nAge: ${age}\nName: ${name}\nName: ${name}\n`
-            
+            let data = `Name: ${name}
+Age: ${age}
+Contact: ${contact}
+Email: ${email}`;
+
+            // Create text file and download
+            let blob = new Blob([data], { type: "text/plain" });
+            let link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "UserDetails.txt";
+            link.click();
         }
     </script>
-    
 
-
-</body>    
-</head>
+</body>
 </html>
