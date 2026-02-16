@@ -10,14 +10,17 @@ from datetime import datetime, timedelta
 import schedule
 import threading
 import time
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)  # Fixed from _name
 
 # ========== CONFIGURATION ==========
-EMAIL_SENDER = "raahisingh2005@gmail.com"
-EMAIL_RECEIVER = "raahisingh2005@gmail.com"
-EMAIL_PASSWORD = "qlxq ryqz cxxl ousy"
-DIRECTORY_PATH = r"C:\\Users\\raahi\\Python"
+EMAIL_SENDER = os.getenv("EMAIL_SENDER")
+EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+DIRECTORY_PATH = os.getenv("DIRECTORY_PATH")
 
 # ========== UTILITY FUNCTIONS ==========
 def load_latest_file(dir_path):
@@ -193,3 +196,4 @@ if __name__ == '__main__':
         scheduler_thread.start()
 
     app.run(debug=True)
+
