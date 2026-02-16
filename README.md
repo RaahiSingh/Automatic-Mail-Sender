@@ -1,4 +1,4 @@
-Automatic Mail Sender
+**Automatic Mail Sender**
 
 This Python project automates the process of sending emails using Excel roster data.
 
